@@ -1,4 +1,10 @@
-const posts = [
+interface Post {
+  id: string;
+  title: string;
+  body: string;
+}
+
+const posts: Post[] = [
   {
     id: '62e69d5a5458aac0ed320b35',
     title: 'id labore ex et quam laborum',
@@ -36,9 +42,9 @@ const posts = [
   },
 ];
 
-const normalizeData = (unnormalizedData) => {
-  // Your code here...
-};
+const normalizeData = (
+  unnormalizedData: Post[]
+): { byId: Record<string, Post>; allIds: string[] } => {};
 
 console.log(normalizeData(posts));
 /**
