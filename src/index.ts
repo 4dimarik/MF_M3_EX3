@@ -4,6 +4,12 @@ interface Post {
   body: string;
 }
 
+type ById = Record<string, Post>;
+interface NormalizeData {
+  byId: ById;
+  allIds: string[];
+}
+
 const posts: Post[] = [
   {
     id: '62e69d5a5458aac0ed320b35',
@@ -42,10 +48,8 @@ const posts: Post[] = [
   },
 ];
 
-const normalizeData = (
-  unnormalizedData: Post[]
-): { byId: Record<string, Post>; allIds: string[] } => {
-  const byId: { [index: string]: Post } = {};
+const normalizeData = (unnormalizedData: Post[]): NormalizeData => {
+  const byId: ById = {};
   const allIds: string[] = [];
 
   unnormalizedData.forEach((post) => {
